@@ -13,7 +13,7 @@ An app to share passwords via symmetrical encryption, made with react and tailwi
 
 *CICD*
 
-[build-and-deploy.yml](.github\workflows\build-and-deploy.yml) builds the page as a GitHub Artifact and deploys the artifact to GitHub Pages.
+[build-and-deploy.yml](.github/workflows/build-and-deploy.yml) builds the page as a GitHub Artifact and deploys the artifact to GitHub Pages.
 
 *Dependencies*
 
@@ -22,4 +22,4 @@ An app to share passwords via symmetrical encryption, made with react and tailwi
 
 *License*
 
-[MIT](.\LICENSE)
+[MIT](./LICENSE)
