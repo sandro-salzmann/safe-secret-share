@@ -49,7 +49,7 @@ export const App = () => {
       }
     };
 
-    encryptValues();
+    void encryptValues();
 
     return () => {
       isCancelled = true;

@@ -14,7 +14,7 @@ interface LinkOutputProps {
 }
 
 export const LinkOutput = ({
-  disabled,
+  disabled = false,
   encryptedData,
   loading = false,
 }: LinkOutputProps) => {

@@ -1,10 +1,10 @@
 import { arrayBufferToBase64 } from "./array-buffer-to-base64";
 
-export type EncryptedData = {
+export interface EncryptedData {
   ivBase64: string;
   saltBase64: string;
   ciphertextBase64: string;
-};
+}
 
 export type EncryptFn = (params: {
   plaintext: string;
