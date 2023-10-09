@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind utilities;
+
+$symbols-fill: 0;
+$symbols-weight: 400;
+$symbols-grade: 0;
+$symbols-optical-size: 24;
+
+.material-symbols-rounded {
+  font-variation-settings:
+    "FILL" $symbols-fill,
+    "wght" $symbols-weight,
+    "GRAD" $symbols-grade,
+    "opsz" $symbols-optical-size;
+}
+.material-symbols-rounded.light {
+  font-variation-settings:
+    "FILL" $symbols-fill,
+    "wght" 250,
+    "GRAD" $symbols-grade,
+    "opsz" $symbols-optical-size;
+}
+// don't forget to update the fonts.googleapis.com/css2?family=Material+Symbols+Rounded
+// link in index.html when adding new font variations
