@@ -78,7 +78,7 @@ export const App = () => {
   return (
     <>
       <DecryptModal />
-      <div className="app flex h-screen flex-col">
+      <div className="app flex h-[100dvh] flex-col">
         <Header />
         <main className="mx-auto max-w-full self-start overflow-y-auto bg-[rgba(255,255,255,0.8)] p-6 backdrop-blur-md max-md:flex-grow md:mb-6 md:max-w-xl md:rounded-xl md:shadow-xl">
           <p className="mb-4 text-xl font-semibold">
