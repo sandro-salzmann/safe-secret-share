@@ -69,7 +69,7 @@ export const LinkOutput = ({
           showSuccessVariant={showPasteSuccess}
         >
           <span className="flex items-center gap-2">
-            Copy to clipboard
+            Copy
             <span className="material-symbols-rounded">content_paste_go</span>
           </span>
         </Button>
