@@ -80,9 +80,9 @@ export const App = () => {
       <DecryptModal />
       <div className="app flex h-screen flex-col">
         <Header />
-        <main className="mx-auto mb-6 max-w-xl self-start overflow-y-auto rounded-xl bg-[rgba(255,255,255,0.8)] p-6 shadow-xl backdrop-blur-md">
+        <main className="mx-auto max-w-full self-start overflow-y-auto bg-[rgba(255,255,255,0.8)] p-6 backdrop-blur-md max-md:flex-grow md:mb-6 md:max-w-xl md:rounded-xl md:shadow-xl">
           <p className="mb-4 text-xl font-semibold">
-            Encrypted password sharing was never this easy
+            Share passwords the safe and easy way
           </p>
           <Message className="my-4 bg-purple-200 text-purple-800">
             <>

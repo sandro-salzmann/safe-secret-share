@@ -9,7 +9,7 @@ export const Header = () => {
           href={import.meta.env.VITE_GITHUB_REPO_URL}
           className="flex items-center gap-1.5"
         >
-          Open Source
+          <span className="max-md:hidden">Open Source</span>
           <span className="material-symbols-rounded light">code</span>
         </a>
       </h1>
