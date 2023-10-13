@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { SHOW_PASTE_SUCCESS_TIMEOUT } from "../../config/config";
 import { Button } from "../../library/button/button";
 import { TextInput } from "../../library/text-input/text-input";
 import { copyTextToClipboard } from "../../utils/copy-to-clipboard";
 import { EncryptedData } from "../../utils/encrypt";
+import { useTimedResetState } from "../../utils/use-timed-reset-state";
 
-const SHOW_PASTE_SUCCESS_TIMEOUT = 3000;
 const MAX_LINK_LENGTH = 2000;
 
 interface LinkOutputProps {
@@ -18,7 +18,7 @@ export const LinkOutput = ({
   encryptedData,
   loading = false,
 }: LinkOutputProps) => {
-  const [showPasteSuccess, setShowPasteSuccess] = useState<boolean>(false);
+  const [showPasteSuccess, setShowPasteSuccess] = useTimedResetState<boolean>(false, SHOW_PASTE_SUCCESS_TIMEOUT);
 
   let linkValue = "";
   if (encryptedData) {
@@ -29,15 +29,9 @@ export const LinkOutput = ({
     urlParams.set("salt", encodeURIComponent(saltBase64));
     urlParams.set("iv", encodeURIComponent(ivBase64));
     linkValue = encryptedData
-      ? `${import.meta.env.VITE_BASE_URL}/dec/${urlParams.toString()}`
+      ? `${import.meta.env.VITE_BASE_URL}?${urlParams.toString()}`
       : "";
   }
-
-  useEffect(() => {
-    if (showPasteSuccess) {
-      setTimeout(() => setShowPasteSuccess(false), SHOW_PASTE_SUCCESS_TIMEOUT);
-    }
-  }, [showPasteSuccess, setShowPasteSuccess]);
 
   const linkLengthExceedsMaxLength = linkValue?.length > MAX_LINK_LENGTH;
 

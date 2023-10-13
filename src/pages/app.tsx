@@ -1,4 +1,5 @@
 import { ChangeEventHandler, useEffect, useState } from "react";
+import { DecryptModal } from "../components/decrypt-modal/decrypt-modal";
 import { Header } from "../components/header/header";
 import { LinkOutput } from "../components/link-output/link-output";
 import { PassphraseInput } from "../components/passphrase-input/passphrase-input";
@@ -68,48 +69,52 @@ export const App = () => {
   };
 
   return (
-    <div className="app flex h-screen flex-col">
-      <Header />
-      <main className="mx-auto mb-6 max-w-xl self-start overflow-y-auto rounded-xl bg-[rgba(255,255,255,0.8)] p-6 shadow-xl backdrop-blur-md">
-        <p className="mb-4 text-xl font-semibold">
-          Encrypted password sharing was never this easy
-        </p>
-        <Message className="my-4 bg-purple-200 text-purple-800">
-          <>
-            Your <strong>password is stored</strong> inside the Link you will
-            send to the recipent and <strong>not on any of our servers</strong>.
-          </>
-        </Message>
-        <PasswordInput
-          onPasswordChange={onPasswordChange}
-          password={password}
-        />
-        <PassphraseInput
-          onPassphraseChange={onPassphraseChange}
-          passphrase={passphrase}
-          disabled={passphraseDisabled}
-        />
-        <LinkOutput
-          disabled={linkOutputDisabled}
-          encryptedData={encryptedData}
-          loading={isEncrypting}
-        />
-        <Message
-          className={`my-4 bg-emerald-200 text-emerald-800 
+    <>
+      <DecryptModal />
+      <div className="app flex h-screen flex-col">
+        <Header />
+        <main className="mx-auto mb-6 max-w-xl self-start overflow-y-auto rounded-xl bg-[rgba(255,255,255,0.8)] p-6 shadow-xl backdrop-blur-md">
+          <p className="mb-4 text-xl font-semibold">
+            Encrypted password sharing was never this easy
+          </p>
+          <Message className="my-4 bg-purple-200 text-purple-800">
+            <>
+              Your <strong>password is stored</strong> inside the Link you will
+              send to the recipent and{" "}
+              <strong>not on any of our servers</strong>.
+            </>
+          </Message>
+          <PasswordInput
+            onPasswordChange={onPasswordChange}
+            password={password}
+          />
+          <PassphraseInput
+            onPassphraseChange={onPassphraseChange}
+            passphrase={passphrase}
+            disabled={passphraseDisabled}
+          />
+          <LinkOutput
+            disabled={linkOutputDisabled}
+            encryptedData={encryptedData}
+            loading={isEncrypting}
+          />
+          <Message
+            className={`my-4 bg-emerald-200 text-emerald-800 
                       opacity-${linkOutputDisabled ? "30" : "100"}`}
-        >
-          <>
-            The recipient needs the passphrase to decrypt your password. Be sure
-            to&nbsp;
-            <strong>
-              transfer the link and passphrase on two different channels to make
-              the exchange secure.
-            </strong>
-          </>
-        </Message>
-        <hr />
-        <QuestionsAndAnswers />
-      </main>
-    </div>
+          >
+            <>
+              The recipient needs the passphrase to decrypt your password. Be
+              sure to&nbsp;
+              <strong>
+                transfer the link and passphrase on two different channels to
+                make the exchange secure.
+              </strong>
+            </>
+          </Message>
+          <hr />
+          <QuestionsAndAnswers />
+        </main>
+      </div>
+    </>
   );
 };

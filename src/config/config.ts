@@ -1,0 +1,1 @@
+export const SHOW_PASTE_SUCCESS_TIMEOUT = 3000;
