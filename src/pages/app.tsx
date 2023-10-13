@@ -5,6 +5,7 @@ import { LinkOutput } from "../components/link-output/link-output";
 import { PassphraseInput } from "../components/passphrase-input/passphrase-input";
 import { PasswordInput } from "../components/password-input/password-input";
 import { QuestionsAndAnswers } from "../components/questions-and-answers/questions-and-answers";
+import { CRYPTO_INPUT_DEBOUNCE_TIMEOUT } from "../config/config";
 import { Message } from "../library/message/message";
 import { EncryptedData, encrypt } from "../utils/encrypt";
 import { useDebounce } from "../utils/use-debounce";
@@ -13,8 +14,14 @@ import "./app.scss";
 export const App = () => {
   const [password, setPassword] = useState<string>();
   const [passphrase, setPassphrase] = useState<string>();
-  const debouncedPassword = useDebounce<string | undefined>(password, 300);
-  const debouncedPassphrase = useDebounce<string | undefined>(passphrase, 300);
+  const debouncedPassword = useDebounce<string | undefined>(
+    password,
+    CRYPTO_INPUT_DEBOUNCE_TIMEOUT,
+  );
+  const debouncedPassphrase = useDebounce<string | undefined>(
+    passphrase,
+    CRYPTO_INPUT_DEBOUNCE_TIMEOUT,
+  );
   const [isEncrypting, setIsEncrypting] = useState<boolean>(false);
   const [encryptedData, setEncryptedData] = useState<EncryptedData>();
   const hasPassword = !!password?.trim();

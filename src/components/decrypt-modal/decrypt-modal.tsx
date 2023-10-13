@@ -1,6 +1,9 @@
 import { Dialog } from "@headlessui/react";
 import { ChangeEventHandler, useEffect, useState } from "react";
-import { SHOW_PASTE_SUCCESS_TIMEOUT } from "../../config/config";
+import {
+  CRYPTO_INPUT_DEBOUNCE_TIMEOUT,
+  SHOW_PASTE_SUCCESS_TIMEOUT,
+} from "../../config/config";
 import { Button } from "../../library/button/button";
 import { Link } from "../../library/link/link";
 import { Message } from "../../library/message/message";
@@ -18,7 +21,10 @@ export const DecryptModal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(!!ciphertext && !!salt && !!iv);
   const [passphrase, setPassphrase] = useState<string>();
   const [decryptedPassword, setDecryptedPassword] = useState<string>();
-  const debouncedPassphrase = useDebounce<string | undefined>(passphrase, 300);
+  const debouncedPassphrase = useDebounce<string | undefined>(
+    passphrase,
+    CRYPTO_INPUT_DEBOUNCE_TIMEOUT,
+  );
   const [showPasteSuccess, setShowPasteSuccess] = useTimedResetState<boolean>(
     false,
     SHOW_PASTE_SUCCESS_TIMEOUT,
