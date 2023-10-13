@@ -68,9 +68,9 @@ export const App = () => {
   };
 
   return (
-    <div className="app h-full">
+    <div className="app flex h-screen flex-col">
       <Header />
-      <main className="mx-auto max-w-xl rounded-xl bg-[rgba(255,255,255,0.8)] p-6 shadow-xl backdrop-blur-md">
+      <main className="mx-auto mb-6 max-w-xl self-start overflow-y-auto rounded-xl bg-[rgba(255,255,255,0.8)] p-6 shadow-xl backdrop-blur-md">
         <p className="mb-4 text-xl font-semibold">
           Encrypted password sharing was never this easy
         </p>
