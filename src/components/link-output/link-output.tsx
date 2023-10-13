@@ -45,7 +45,7 @@ export const LinkOutput = ({
   return (
     <>
       <p className={`mb-2 mt-4 transition-all ${linkOpacity}`}>
-        Step 3: Send the link below and your passhprase to the receiver.
+        Step 3: Send the link below and your passhprase to the recipient
       </p>
       <div className="flex gap-3">
         <TextInput
