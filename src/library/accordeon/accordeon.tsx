@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Disclosure } from "@headlessui/react";
 import { ReactElement } from "../types";
 
 interface AccordeonProps {
@@ -12,28 +12,21 @@ export const Accordeon = ({
   className = "",
   children,
 }: AccordeonProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const onTitleClick = () => {
-    setIsOpen((isOpen) => !isOpen);
-  };
-
   return (
-    <div className={className}>
-      <div
-        className="flex w-max cursor-pointer select-none items-center gap-2"
-        onClick={onTitleClick}
-      >
-        <span className="material-symbols-rounded">
-          {isOpen ? "expand_less" : "expand_more"}
-        </span>
-        {title}
-      </div>
-      {isOpen && (
-        <div className="mt-3 rounded-md bg-slate-200 p-3 text-slate-800">
-          {children}
-        </div>
+    <Disclosure as="div" className={className}>
+      {({ open }) => (
+        <>
+          <Disclosure.Button className="flex w-max cursor-pointer select-none items-center gap-2">
+            <span className="material-symbols-rounded">
+              {open ? "expand_less" : "expand_more"}
+            </span>
+            {title}
+          </Disclosure.Button>
+          <Disclosure.Panel className="mt-3 rounded-md bg-slate-200 p-3 text-slate-800">
+            {children}
+          </Disclosure.Panel>
+        </>
       )}
-    </div>
+    </Disclosure>
   );
 };
