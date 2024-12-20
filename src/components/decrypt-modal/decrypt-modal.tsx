@@ -148,7 +148,9 @@ export const DecryptModal = () => {
           </div>
           <hr />
           <div className="mt-4 text-center">
-            <Link href="/">Encrypt your own password</Link>
+            <Link href={import.meta.env.VITE_BASE_URL}>
+              Encrypt your own password
+            </Link>
           </div>
         </Dialog.Panel>
       </div>
