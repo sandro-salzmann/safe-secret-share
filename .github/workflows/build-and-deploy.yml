@@ -10,6 +10,7 @@ jobs:
 
     env:
       NODE_VERSION: 18.x
+      VITE_BASE_URL: https://sandro-salzmann.github.io/safe-secret-share/
 
     steps:
     - uses: actions/checkout@v3
